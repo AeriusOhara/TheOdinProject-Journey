@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html class="bg">
+<head>
+	<title>Webbutveckling :: Delmoment 5 - Upgift 1</title>
+	<link rel="stylesheet" href="style.css" />
+	<script src="javascript	.js" type="text/javascript" ></script>
+</head>
+<body>
+	<header>
+		:: Rock Paper Scissors ::
+		<h6>Can you win the game?</h3>
+	</header>
+
+	<!--<section>
+		<input type="text" value="mathexpressionhere" id="mathExpression" /> <br />
+		<input type="text" value="" id="mathExpressionOutput" /> <br />
+		<input type="button" value="Run Expression" onClick="runExpression();" />
+	</section>-->
+
+	<section class="rockPaperScissors">
+
+		<p class="score" id="scorePlayer">
+			Your current score is 0.
+		</p>
+
+		<p class="score" id="scoreComp">
+			The computer's current score is 0.
+		</p>
+
+		<p>
+			<input type="button" value="Start / Restart game" id="toggleGameState" onClick="toggleGameState(true);" />
+		</p>
+
+		<p>
+			<input type="button" value="rock" id="rockButton" onClick="doPlayerMove(0);" disabled />
+			<input type="button" value="paper" id="paperButton" onClick="doPlayerMove(1);" disabled />
+			<input type="button" value="scissors" id="scissorsButton" onClick="doPlayerMove(2);" disabled />
+		</p>
+
+		<div class="gameWindow">
+			<div id="row_1">
+				<div class="col" id="col_1_1">
+
+				</div>
+				<div class="col" id="col_1_2">
+
+				</div>
+				<div class="col" id="col_1_3">
+
+				</div>
+			</div>
+
+			<div id="row_2">
+				<div class="col" id="col_2_1">
+
+				</div>
+				<div class="col" id="col_2_2">
+
+				</div>
+				<div class="col" id="col_2_3">
+
+				</div>
+			</div>
+
+			<div id="row_3">
+				<div class="col" id="col_3_1">
+
+				</div>
+				<div class="col" id="col_3_2">
+
+				</div>
+				<div class="col" id="col_3_3">
+
+				</div>
+			</div>
+
+			<div class="row_4">
+				<div class="col" id="col_4_1">
+
+				</div>
+				<div class="col" id="col_4_2">
+
+				</div>
+				<div class="col" id="col_4_3">
+
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer>
+		&copy; 2018-2019 Salih Ozkan
+	</footer>
+</body>
+</html>
