@@ -49,12 +49,12 @@ def increment_array_by2
 	puts arr2
 end
 
-while false
-	header()
-
-	# number_comparer()
-	
-	footer()
-end
+#while false
+#	header()
+#
+#	# number_comparer()
+#	
+#	footer()
+#end
 
 increment_array_by2()
