@@ -1,26 +1,7 @@
-# def sub_string(inputString, dictionary)
-#	regex = "/" + inputString + "/"
-#	processed_string = []
-#	tmp_string = ''
-#
-#	input_length = inputString.length
-#
-#	# Loop through the input we've been given one
-#	 character at a time
-#	#inputString.each_char.with_index do |value, index|
-#		tmp_string = inputString[index]
-#		(input_length - (index+1)).times do |index2|
-#			tmp_string.concat(inputString[index+(index2+1)])
-#			puts "Checking if \"#{tmp_string}\" exists in dictionary"
-#			processed_string.push(tmp_string) if dictionary.any? tmp_string
-#		end
-#	#end
-#	puts dictionary
-#	
-#	puts processed_string.join
-# end
-
-def sub_string2(input_string, dictionary)
+# I couldn't completely figure it out, turns out I forgot to iterate
+# through the substring with another substring of its own. I peeked
+# through other peoples' code and was able to solve it eventually
+def sub_string(input_string, dictionary)
 	# Make sure there's no special characters apart from spaces
 	input_string.gsub!(/[^A-Za-z ]/, '')
 
@@ -31,21 +12,29 @@ def sub_string2(input_string, dictionary)
 	# Recreate the dictionary downcased
 	downcase_dictionary = dictionary.map(&:downcase)
 
-	input_array.each.with_index{ |value, index|
+	input_array.each{ |word|
 		# Loop through each word and see if you can find parts of it
 		# in the dictionary
-		value.each_char.with_index{ |value2, index2|
-			temp_string = value[0 .. ((value.length - 1) - index2)]
-			
-			if downcase_dictionary.include? temp_string.downcase
-				found_words[temp_string] += 1
-			end
+		word.length.times{ |word_position|
+			word_substring = word[word_position..word.length]
+
+			word_substring.length.times{ |word_substr_index|
+				substr_word = word[word_position..(word_position + word_substr_index)]
+				
+				# puts "Checking if \"#{temp_string.downcase}\" exists in dictionary"
+				if downcase_dictionary.include? substr_word.downcase
+					found_words[substr_word] += 1
+					# puts " -> It does!"
+				end
+			}
 		}
 	}
-	
-	puts foundwords
+
+	found_words.each do |word, count|
+		puts "#{count}x #{word}"
+	end
 end
 
 dictionary = %w[below down go going horn how howdy it i low own part partner sit]
 
-sub_string2("Howdy partner, sit down! How's it going?", dictionary)
+sub_string("Howdy partner, sit down! How's it going?", dictionary)
