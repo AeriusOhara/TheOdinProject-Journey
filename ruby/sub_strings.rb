@@ -12,23 +12,34 @@ def sub_string(input_string, dictionary)
 	# Recreate the dictionary downcased
 	downcase_dictionary = dictionary.map(&:downcase)
 
-	input_array.each{ |word|
-		# Loop through each word and see if you can find parts of it
-		# in the dictionary
-		word.length.times{ |word_position|
-			word_substring = word[word_position..word.length]
+	# Loop through each word given by the user and see if
+	# you can find parts of it in the dictionary
+	input_array.each do |word|
+		# For each word, we'll be looping for however many 
+		# characters its got ("howdy" -> 5 loops)
+		(word.length-1).times do |word_position|
+			# Each loop will select the next character of the
+			# word. And with the next loop below we'll loop 
+			# through the rest of the remaining word to check 
+			# if the substring has any matching words of the 
+			# dictionary and it'll operate like this:
+			# Howdy:
+			#	H -> Ho -> How -> Howd -> Howdy
+			#	o -> ow -> owd -> owdy
+			#	w -> wd -> y
+			#	d -> dy
+			#	y
+			(word_position..(word.length-1)).each do |substr_position|
+				# Finally check if the substring matches any
+				# words in the dictionary
+				substr_word = word[word_position..substr_position]
 
-			word_substring.length.times{ |word_substr_index|
-				substr_word = word[word_position..(word_position + word_substr_index)]
-				
-				# puts "Checking if \"#{temp_string.downcase}\" exists in dictionary"
 				if downcase_dictionary.include? substr_word.downcase
 					found_words[substr_word] += 1
-					# puts " -> It does!"
 				end
-			}
-		}
-	}
+			end
+		end
+	end
 
 	found_words.each do |word, count|
 		puts "#{count}x #{word}"
