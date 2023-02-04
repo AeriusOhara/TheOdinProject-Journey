@@ -1,0 +1,5 @@
+form > fieldset > div{
+    display:grid;
+    width: 49%;
+    background: gray;
+}
