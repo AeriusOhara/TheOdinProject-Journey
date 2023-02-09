@@ -1,26 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="light" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="funcs.js"></script>
 </head>
 <body>
     <div class="content">
         <div class="logo-space">
-
+            <div>
+                <img class="odin-logo" src="images/odin_lined.png" alt="Odin Project Logo">
+                <p class="title">
+                    The Odin Project
+                </p>
+            </div>
+        <div>
+                
+            </div>
         </div>
         <div class="form-space">
             <div class="container">
+                <button class="theme-switcher">Light</button>
                 <div>
-                    This is not a real online service! You know you need something 
-                    like this in your life to help you realize your deepest dreams.<br /><br />
-                    You <span class="italic">know</span> you want to.
+                    <p>
+                        This is not a real online service! But you know you need something 
+                        like this in your life to help you realize your deepest dreams.
+                        Afer all, who doesn't want to have the best HTML and CSS Steaks!?
+                    </p>
+                    <p>
+                        You <span class="italic">know</span> you want to.
+                    </p>
                 </div>
-                <div class="form-intro">Lets do this!</div>
+
                 <div>
+                    <p class="form-intro">
+                        Lets get you signed up first.
+                    </p>
+
                     <form action="#" method="post">
                         <div class="form-ele">
                             <label for="fname">FIRST NAME</label>
@@ -54,8 +73,9 @@
                         </div>
                     </form>
                 </div>
-                </div>
+            </div>
         </div>
     </div>
 </body>
+<script>document.querySelector('.theme-switcher').addEventListener('click', switchTheme);</script>
 </html>
