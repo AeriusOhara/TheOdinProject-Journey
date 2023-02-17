@@ -135,6 +135,11 @@ form > div {
     border-radius: 2%;
 }
 
+
 .theme-switcher {
     float: right;
+    background-image:url(images/light.svg);
+    background-repeat:no-repeat;
+    width: 25px;
+    height: 25px;
 }

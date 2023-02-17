@@ -13,5 +13,5 @@ function switchTheme(){
     }
 
     root.className = newTheme;
-    themeSwitchBtn.innerText = newTheme;
+    themeSwitchBtn.style.backgroundImage = "url('images/" + newTheme + ".svg')";
 }
