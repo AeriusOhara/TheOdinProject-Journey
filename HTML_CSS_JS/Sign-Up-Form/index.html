@@ -37,37 +37,42 @@
                         Lets get you signed up first.
                     </p>
 
-                    <form action="#" method="post">
+                    <form action="#" method="post" id="signup_form">
                         <div class="form-ele">
                             <label for="fname">FIRST NAME</label>
                             <input type="text" id="fname" name="fname" required>
+                            <p id="fname_error" class="errortext hidden"></p>
                         </div>
                         <div class="form-ele">
                             <label for="lname">LAST NAME</label>
                             <input type="text" id="lname" name="lname" required>
+                            <p id="lname_error" class="errortext hidden"></p>
                         </div>
 
                         <div class="form-ele">
                             <label for="email">E-MAIL</label>
                             <input type="text" id="email" name="email" required>
+                            <p id="email_error" class="errortext hidden"></p>
                         </div>
                         <div class="form-ele">
                             <label for="phoneno">PHONE NUMBER</label>
                             <input type="text" id="phoneno" name="phoneno" required>
+                            <p id="phoneno_error" class="errortext hidden"></p>
                         </div>
 
                         <div class="form-ele">
                             <label for="pass">PASSWORD</label>
                             <input type="password" id="pass" name="pass" required>
-                            <p id="passmatcherror" class="hidden">Passwords do not match.</p>
+                            <p id="pass_error" class="errortext hidden"></p>
                         </div>
                         <div class="form-ele">
                             <label for="cpass">CONFIRM PASSWORD</label>
                             <input type="password" id="cpass" name="cpass" required>
+                            <p id="cpass_error" class="errortext hidden"></p>
                         </div>
 
                         <div class="form-ele">
-                            <button type="button" class="submitbtn" id="submit_button">Create Account</button>
+                            <button type="submit" class="submitbtn" id="submit_button">Create Account</button>
                         </div>
                     </form>
 
@@ -81,21 +86,23 @@
 </body>
 <script>document.querySelector('.theme-switcher').addEventListener('click', switchTheme);</script>
 <script>
+    // Form elements
+    const fname = document.getElementById("fname");
+    const lname = document.getElementById("lname");
+    const email = document.getElementById("email");
+    const phoneno = document.getElementById("phoneno");
     const pass = document.getElementById("pass");
     const cpass = document.getElementById("cpass");
-    const submit_button = document.getElementById("submit_button");
+    const signup_form = document.getElementById("signup_form");
 
-    const passmatcherror = document.getElementById("passmatcherror");
+    attachEventListenerRegex("fname", fname, "name");
+    attachEventListenerRegex("lname", lname, "name");
+    attachEventListenerRegex("email", email, "email");
+    attachEventListenerRegex("phoneno", phoneno, "phone");
+    attachEventListenerRegex("pass", pass, "passwd");
+    attachEventListenerRegex("cpass", cpass, "passwd");
+    attachPassCompareListener("cpass", pass, cpass, "passMatchFail");
 
-    submit_button.addEventListener("click", (event) => {
-        
-        if(pass.value == cpass.value) {
-            passmatcherror.classList.add("hidden")
-            return true; // Replace with submit code
-        }
-        else {
-            passmatcherror.classList.remove("hidden")
-        }
-    });
+    signup_form.addEventListener("submit", fullValidate);
 </script>
 </html>
